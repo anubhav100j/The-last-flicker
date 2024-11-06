@@ -15,6 +15,9 @@
 body {
     font-family: "Playwrite GB S", cursive;
 }
+strong {
+    font-weight: 1000; /* Increase from the default */
+}
 
 /* Navigation Bar Styles */
 header {
@@ -28,9 +31,13 @@ header {
 }
 
 /* Style the title */
-.title {
+.title a{
     /*font-family: 'Cursive', sans-serif;*/
+    color: inherit  !important;          /* Inherit the color from the parent, so it doesn’t change */
+    text-decoration: none !important;   /* Remove underline */        
+    font-weight: bold;       /* Optional: Make it bold for emphasis */
     font-size: 65px;              /* Font size for the title */
+    cursor: pointer;
 }
 
 /* Style the menu icon */
@@ -55,7 +62,7 @@ header {
 /* Style the dropdown menu to be full-screen */
 .menu-overlay {
     position: absolute;
-    top: 110px;
+    top: 15%;
     right: 0;
     bottom: 0;
     left: 0;
@@ -98,8 +105,9 @@ header {
     margin: 0 auto;
 }
 
-/*----------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------*/
 /* Footer Styles */
+
 footer {
     background-color: #333;
     color: #fff;
@@ -107,6 +115,180 @@ footer {
     padding: 1em 0;
 }
 
+/*--------------------------------------------------------------------------------------*/
+/* Illustrations section */
+.ill-introduction {
+    margin-top: 5%;
+    margin-left: 10%;
+    padding: 1rem;          /* Adds spacing inside the section */
+    max-width: 40%;         /* Limits the width for readability */
+    font-size: 16px;
+}
+.ill-introduction h1 {
+    margin-bottom: 1rem; /* Adds spacing below the heading */
+}
+
+.ill-introduction p {
+    margin-bottom: 1rem; /* Adds spacing below the paragraph */
+}
+
+.section-josh {
+    display: flex;                  /* Set flex to position text and image side by side */
+    align-items: flex-start;        /* Align both elements to the top */
+    margin: 5% 1% 5% 10%;           /* Add some margin on the top and sides */
+    padding: 1rem;                  /* Adds spacing inside the section */
+    max-width: 90%;                 /* Set a reasonable width for the entire section */
+    font-size: 16px;                /* Set the font size */
+}
+.section-josh h2{
+    margin-bottom: 1rem; 
+}
+.section-amilia {
+    display: flex;                  /* Set flex to position text and image side by side */
+    align-items: flex-start;        /* Align both elements to the top */
+    margin-left:10%;                 /* Add some margin on the top and sides */
+    padding: 1rem;                  /* Adds spacing inside the section */
+    max-width: 90%;                 /* Set a reasonable width for the entire section */
+    font-size: 16px;                /* Set the font size */
+}
+.section-amilia h2{
+    margin-bottom: 1rem; 
+}
+
+.section-dave {
+    display: flex;                  /* Set flex to position text and image side by side */
+    align-items: flex-start;        /* Align both elements to the top */
+    margin: 5% 1% 5% 10%;                 /* Add some margin on the top and sides */
+    padding: 1rem;                  /* Adds spacing inside the section */
+    max-width: 90%;                 /* Set a reasonable width for the entire section */
+    font-size: 16px;                /* Set the font size */
+}
+.section-dave h2{
+    margin-bottom: 1rem; 
+}
+.text-content {
+    margin-right: 1px;
+    flex: 2;                        /* The text content takes more space */
+}
+
+.image-content {
+    flex: 3;                        /* The image takes less space */
+    margin-top: 5%;
+    display: flex;                  /* Display flex to align the image properly */
+    justify-content: flex-end;      /* Push the image to the right side */
+    padding-left: 10px;             /* Add space between text and image */
+}
+.image-content {
+}
+.image-content img {
+    width: 100%;                    /* Ensure the image fills its container */
+    max-width: 600px;               /* Set a maximum width for the image */
+    border-radius: 10px;             /* Add rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+}
+
+/*-------------------------------------------------------------------------
+About section
+*/
+.about-text{
+    margin-top: 5%;
+    margin-left: 10%;
+    padding: 1rem;          /* Adds spacing inside the section */
+    max-width: 40%;         /* Limits the width for readability */
+    font-size: 16px;
+}
+.about-text p{
+    margin-bottom: 1rem; /* Adds spacing below the paragraph */
+}
+.about-team{
+    margin-top: 5%;
+    margin-left: 10%;
+    padding: 1rem;          /* Adds spacing inside the section */
+    max-width: 40%;         /* Limits the width for readability */
+    font-size: 16px;
+}
+.member1 h2{
+    margin-bottom: 1rem;
+}
+.member1 p{
+    margin-bottom: 1rem;
+}
+
+.member2 h2{
+    margin-bottom: 1rem;
+}
+.member2 p{
+    margin-bottom: 1rem;
+}
+
+.member3 h2{
+    margin-bottom: 1rem;
+}
+.member3 p{
+    margin-bottom: 1rem;
+}
+
+.member4 h2{
+    margin-bottom: 1rem;
+}
+.member4 p{
+    margin-bottom: 1rem;
+}
+
+.journey{
+    margin-top: 5%;
+    margin-left: 10%;
+    padding: 1rem;          /* Adds spacing inside the section */
+    max-width: 40%;         /* Limits the width for readability */
+    font-size: 16px;
+}
+.journey h1{
+    margin-bottom: 1rem;
+}
+.journey p{
+    margin-bottom: 1rem;
+}
+.journey ul{
+    margin-bottom: 2rem;
+}
+.TnD{
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-bottom: 1rem;
+    padding: 1rem;          /* Adds spacing inside the section */
+    max-width: 40%;         /* Limits the width for readability */
+    font-size: 16px;
+}
+.TnD h1{
+    margin-bottom: 1rem;
+}
+.TnD p{
+    margin-bottom: 1rem;
+}
+.TnD-text {
+    margin-bottom: 1rem;
+}
+.TnD ul{
+    margin-bottom: 2rem;
+}
+
+.aknowlegment{
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-bottom: 1rem;
+    padding: 1rem;          /* Adds spacing inside the section */
+    max-width: 40%;         /* Limits the width for readability */
+    font-size: 16px;
+}
+.aknowlegment h1{
+    margin-bottom: 1rem;
+    }
+.aknowlegment p{
+    margin-bottom: 1rem;
+}
+.aknowlegment ul{
+    margin-bottom: 2rem;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
     nav ul {
