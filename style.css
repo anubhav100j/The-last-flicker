@@ -1,0 +1,345 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Playwrite GB S";
+    src: url("fonts/PlaywriteGBS.woff2") format("woff2"),
+         url("fonts/PlaywriteGBS.woff") format("woff"); /* Fallback */
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: "Playwrite GB S", cursive;
+    line-height: 1.6;
+    color: #333;
+}
+body, html {
+    height: 100%;
+    overflow: hidden;
+}
+strong {
+    font-weight: 1000; /* Increase from the default */
+}
+
+/* Navigation Bar Styles */
+header {
+    display: flex;                  /* Use flexbox for layout */
+    justify-content: space-between; /* Space between title and menu icon */
+    align-items: center;           /* Center items vertically */
+    padding: 1rem 2rem;           /* Add some padding */
+    background-color: #fff;       /* Background color */
+    color: #333;  
+    margin-top: 2rem;                /* Text color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+/* Style the title */
+.title a{
+    color: inherit  !important;          /* Inherit the color from the parent, so it doesn’t change */
+    text-decoration: none !important;   /* Remove underline */        
+    font-weight: bold;       /* Optional: Make it bold for emphasis */
+    font-size: 3rem;              /* Font size for the title */
+    cursor: pointer;
+}
+
+/* Style the menu icon */
+.menu-icon {
+    font-size: 1.5rem;              /* Font size for the menu icon */
+    cursor: pointer;              /* Change cursor to pointer */
+    margin-left: auto;
+    margin-right: 1rem;
+}
+.menu-icon.close{
+    color : #333;
+}
+
+/* For the story section  */
+/* Moving Background */
+.moving-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('Church-back.jpg') no-repeat center center/cover;
+    animation: move-background 20s linear infinite;
+    z-index: 0;
+}
+
+@keyframes move-background {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 5% 5%; }
+}
+
+/* Lightning Flash Effect */
+.lightning-flash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Rain Overlay */
+.rain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.raindrop {
+    position: fixed;
+    top: 0;
+    width: 2px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.4);
+    z-index: 1;
+}
+
+/* Main Content Styles */
+.main-content {
+    position: relative;
+    z-index: 5;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+}
+
+.moving-text {
+    animation: float-text 5s ease-in-out infinite alternate;
+}
+
+@keyframes float-text {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Make the frames-section tall enough to allow scrolling */
+.frames-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    position: relative;
+    width: 100%;
+    height: 300vh; /* Adjust based on the number of frames */
+}
+
+/* Style each frame-container */
+.frame-container {
+    position: fixed; /* Keep the frame fixed in the viewport */
+    top: 5%;
+    left: 25%;
+    width: 50%;
+    height: 100vh; /* Full viewport height */
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+
+}
+/* Ensure frames are stacked on top of each other and only one is visible */
+.frame-container {
+    position: absolute;
+    width: 100%;
+}
+.frame-container.active{
+    opacity: 1;
+}
+/* Optional: Hide inactive frames from view to avoid overlapping */
+.frame-container:not(.active) {
+    pointer-events: none;
+}
+/* When the frame is active, make it visible */
+.frame-content.active {
+    opacity: 1;
+}
+
+/* Optional: Style the frame content */
+.frame-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    height: 100%;
+}
+
+.frame-image {
+    max-width: 100%;
+    height: 50vh;
+    opacity: 0;
+    mix-blend-mode: multiply;
+    transition: filter 0.5s ease, opacity  0.5s ease;
+}
+.frame-container.active .frame-image{
+    opacity: 1;
+}
+
+.frame-text {
+    font-size: 1.5em;
+    text-align: center;
+    color: #fff;
+    margin-top: 20px;
+}
+/*---------------------------Story section ends here--------------------------------------------*/
+/* Main Title Section */
+.main-title h1 {
+    font-size: 2.5rem;
+    margin-top: 5rem;
+    font-weight: bold;
+    padding-left: 10%;
+}
+
+/* Style the dropdown menu to be full-screen */
+.menu-overlay {
+    position: absolute;
+    top: 15%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.menu-content ul {
+    list-style-type: none;
+}
+
+.menu-content ul li {
+    margin: 20px 0;
+}
+
+.menu-content ul li a {
+    color: #333;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+/* Change background color on hover */
+.menu-item:hover {
+    background-color: #f0f0f0;    /* Light gray on hover */
+}
+
+/* Banner Section */
+.banner {
+    margin: 20px 0;
+}
+
+.banner img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/*--------------------------------------------------------------------------------------*/
+/* Footer Styles */
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+}
+
+/*--------------------------------------------------------------------------------------*/
+/* Illustrations section */
+.ill-introduction {
+    margin-top: 5%;
+    margin-left: 10%;
+    padding: 1rem;          /* Adds spacing inside the section */
+    max-width: 40%;         /* Limits the width for readability */
+    font-size: 1rem;
+}
+
+.ill-introduction h1 {
+    margin-bottom: 1rem; /* Adds spacing below the heading */
+}
+
+.ill-introduction p {
+    margin-bottom: 1rem; /* Adds spacing below the paragraph */
+}
+
+.section-josh {
+    display: flex;                  /* Set flex to position text and image side by side */
+    align-items: flex-start;        /* Align both elements to the top */
+    margin: 5% 1% 5% 10%;           /* Add some margin on the top and sides */
+    padding: 1rem;                  /* Adds spacing inside the section */
+    max-width: 90%;                 /* Set a reasonable width for the entire section */
+    font-size: 1rem;                /* Set the font size */
+}
+
+.section-josh h2{
+    margin-bottom: 1rem; 
+}
+
+.section-amilia {
+    display: flex;                  /* Set flex to position text and image side by side */
+    align-items: flex-start;        /* Align both elements to the top */
+    margin-left:10%;                 /* Add some margin on the top and sides */
+    padding: 1rem;                  /* Adds spacing inside the section */
+    max-width: 90%;                 /* Set a reasonable width for the entire section */
+    font-size: 1rem;                /* Set the font size */
+}
+
+.section-amilia h2{
+    margin-bottom: 1rem; 
+}
+
+.section-dave {
+    display: flex;                  /* Set flex to position text and image side by side */
+    align-items: flex-start;        /* Align both elements to the top */
+    margin: 5% 1% 5% 10%;                 /* Add some margin on the top and sides */
+    padding: 1rem;                  /* Adds spacing inside the section */
+    max-width: 90%;                 /* Set a reasonable width for the entire section */
+    font-size: 1rem;                /* Set the font size */
+}
+
+.section-dave h2{
+    margin-bottom: 1rem; 
+}
+
+.text-content {
+    margin-right: 1px;
+    flex: 2;                        /* The text content takes more space */
+}
+
+.image-content {
+    flex: 3;                        /* The image takes less space */
+    margin-top: 5%;
+    display: flex;                  /* Display flex to align the image properly */
+    justify-content: flex-end;      /* Push the image to the right side */
+    padding-left: 10px;             /* Add space between text and image */
+}
+
+.image-content img {
+    width: 100%;                    /* Ensure the image fills its container */
+    max-width: 600px;               /* Set a maximum width for the image */
+    border-radius: 10px;             /* Add rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+}
+
+/*-------------------------------------------------------------------------
+About section
+*/
+.about-text{
+    margin-top: 5%;
+    margin-left: 10%;
+    padding: 1rem;          /* Adds spacing inside the section */
+    max-width: 40%;         /* Limits the width for readability */
+    font-size: 1rem;
+}

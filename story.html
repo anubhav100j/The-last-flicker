@@ -56,9 +56,11 @@
         var scroll = window.scrollY + (window.innerHeight / 3);
         console.log("Scroll position:", scroll); // Log scroll position for debugging
 
+        // Loop through each frame container and determine which should be active
         Array.from(document.getElementsByClassName('frame-container')).forEach(el => {
             el.classList.remove('active');
 
+            // Check if the scroll position falls within the element's range
             if (el.offsetTop <= scroll && el.offsetTop + el.offsetHeight > scroll) {
                 el.classList.add('active');
                 console.log("Active element:", el); // Log the active element
@@ -66,7 +68,8 @@
         });
     }
 
-    changeImage(); // Initial call
+    // Call this initially to activate the first frame on page load
+    changeImage();
 </script>
 <!-- Footer Section -->
 <!-- Include GSAP and ScrollTrigger in your HTML head or before the closing body tag -->
