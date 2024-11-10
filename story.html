@@ -10,26 +10,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
-     <!-- Link to your JavaScript file -->
-     <script src="script.js" defer></script>
+    <!-- Include GSAP and ScrollTrigger in your HTML head -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="animations.js" defer></script>
 </head>
 <body>
-    <!-- Main Content Section -->
-    <main>
-        <div class="moving-background"></div>
-        <div class="rain-overlay"></div>
-        <div class="lightning-flash"></div>
+<!-- Main Content Section -->
+<main>
+    <div class="moving-background"></div>
+    <div class="rain-overlay"></div>
+    <div class="lightning-flash"></div>
 
-        <div class="main-content">
-            <h1 class="moving-text">The Last Flicker</h1>
-            <p class="moving-text">Based on the story by IAT students</p>
-            <p class="moving-text">Adaptation by AJ, Mishel, Kristen, Kal</p>
-        </div>
+    <div class="main-content">
+        <h1 class="moving-text">The Last Flicker</h1>
+        <p class="moving-text">Based on the story by IAT students</p>
+        <p class="moving-text">Adaptation by AJ, Mishel, Kristen, Kal</p>
+    </div>
 
-<!-- Frames Section for Vertical Scroll Effect -->
-    <!-- Frames Section for Vertical Scroll Effect -->
+    <!-- Frames Section -->
     <div class="frames-section">
-        <!-- Frame 1 -->
         <div class="frame-container" id="frame1">
             <div class="frame-content">
                 <img src="frame1.png" alt="Frame 1" class="frame-image">
@@ -37,44 +37,13 @@
             </div>
         </div>
 
-        <div class = "frame-container" id= "frame2">
-            <div class = "frame-content">
-                <img src = "frame2.png" alt = "Frame 2" class = "frame-image">
+        <div class="frame-container" id="frame2">
+            <div class="frame-content">
+                <img src="frame2.png" alt="Frame 2" class="frame-image">
+                <p class="frame-text">"This is the text for the second frame!"</p>
             </div>
-    
+        </div>
     </div>
-
-    </main>
+</main>
 </body>
-
-<script>
-    window.onscroll = function() {
-        changeImage();
-    }
-
-    function changeImage() {
-        var scroll = window.scrollY + (window.innerHeight / 3);
-        console.log("Scroll position:", scroll); // Log scroll position for debugging
-
-        // Loop through each frame container and determine which should be active
-        Array.from(document.getElementsByClassName('frame-container')).forEach(el => {
-            el.classList.remove('active');
-
-            // Check if the scroll position falls within the element's range
-            if (el.offsetTop <= scroll && el.offsetTop + el.offsetHeight > scroll) {
-                el.classList.add('active');
-                console.log("Active element:", el); // Log the active element
-            }
-        });
-    }
-
-    // Call this initially to activate the first frame on page load
-    changeImage();
-</script>
-<!-- Footer Section -->
-<!-- Include GSAP and ScrollTrigger in your HTML head or before the closing body tag -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<script src="animations.js"></script> 
-
 </html>

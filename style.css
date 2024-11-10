@@ -16,10 +16,7 @@ body {
     line-height: 1.6;
     color: #333;
 }
-body, html {
-    height: 100%;
-    overflow: hidden;
-}
+
 strong {
     font-weight: 1000; /* Increase from the default */
 }
@@ -89,14 +86,14 @@ header {
 
 /* Rain Overlay */
 .rain-overlay {
-    position: fixed;
+    position: fixed; /* Ensure it's positioned relative to the viewport */
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 1;
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+    pointer-events: none; /* Ensure it doesn’t block interaction */
+    overflow: hidden; /* Prevent drops from overflowing */
+    z-index: 10; /* Set the correct z-index to layer above the background */
 }
 
 .raindrop {
@@ -106,12 +103,13 @@ header {
     height: 20px;
     background: rgba(255, 255, 255, 0.4);
     z-index: 1;
+    animation: rainAnimation 1s linear infinite;
 }
 
 /* Main Content Styles */
 .main-content {
     position: relative;
-    z-index: 5;
+    /*z-index: 5;*/
     color: #fff;
     text-align: center;
     padding: 2rem;
@@ -126,72 +124,94 @@ header {
     50% { transform: translateY(-10px); }
 }
 
-/* Make the frames-section tall enough to allow scrolling */
+/*!* Make the frames-section tall enough to allow scrolling *!*/
 .frames-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px;
-    position: relative;
-    width: 100%;
-    height: 300vh; /* Adjust based on the number of frames */
+    margin-top: 100vh; /* Push frames down initially */
 }
 
-/* Style each frame-container */
 .frame-container {
-    position: fixed; /* Keep the frame fixed in the viewport */
-    top: 5%;
-    left: 25%;
-    width: 50%;
-    height: 100vh; /* Full viewport height */
-    transition: opacity 0.5s ease-in-out;
-    opacity: 0;
-
-}
-/* Ensure frames are stacked on top of each other and only one is visible */
-.frame-container {
-    position: absolute;
     width: 100%;
-}
-.frame-container.active{
-    opacity: 1;
-}
-/* Optional: Hide inactive frames from view to avoid overlapping */
-.frame-container:not(.active) {
-    pointer-events: none;
-}
-/* When the frame is active, make it visible */
-.frame-content.active {
-    opacity: 1;
-}
-
-/* Optional: Style the frame content */
-.frame-content {
+    height: 100vh;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    
-    height: 100%;
+    align-items: center;
+    opacity: 0; /* Hidden initially */
+    margin-bottom: 50px;
 }
 
 .frame-image {
-    max-width: 100%;
-    height: 50vh;
-    opacity: 0;
-    mix-blend-mode: multiply;
-    transition: filter 0.5s ease, opacity  0.5s ease;
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: cover;
 }
-.frame-container.active .frame-image{
-    opacity: 1;
-}
+/*.frames-section {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*    margin: 20px;*/
+/*    position: relative;*/
+/*    width: 100%;*/
+/*    height: 300vh; !* Adjust based on the number of frames *!*/
+/*}*/
 
-.frame-text {
-    font-size: 1.5em;
-    text-align: center;
-    color: #fff;
-    margin-top: 20px;
-}
+/*!* Style each frame-container *!*/
+/*.frame-container {*/
+/*    position: fixed; !* Keep the frame fixed in the viewport *!*/
+/*    top: 5%;*/
+/*    left: 25%;*/
+/*    width: 50%;*/
+/*    height: 100vh; !* Full viewport height *!*/
+/*    transition: opacity 0.5s ease-in-out;*/
+/*    opacity: 0;*/
+
+/*}*/
+/*!* Ensure frames are stacked on top of each other and only one is visible *!*/
+/*.frame-container {*/
+/*    position: absolute;*/
+/*    width: 100%;*/
+/*}*/
+/*.frame-container.active{*/
+/*    opacity: 1;*/
+/*}*/
+/*!* Optional: Hide inactive frames from view to avoid overlapping *!*/
+/*.frame-container:not(.active) {*/
+/*    pointer-events: none;*/
+/*}*/
+/*!* When the frame is active, make it visible *!*/
+/*.frame-content.active {*/
+/*    opacity: 1;*/
+/*}*/
+
+/*!* Optional: Style the frame content *!*/
+/*.frame-content {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    */
+/*    height: 100%;*/
+/*}*/
+
+/*.frame-image {*/
+/*    max-width: 100%;*/
+/*    height: 50vh;*/
+/*    opacity: 0;*/
+/*    mix-blend-mode: multiply;*/
+/*    transition: filter 0.5s ease, opacity  0.5s ease;*/
+/*}*/
+/*.frame-container.active .frame-image{*/
+/*    opacity: 1;*/
+/*}*/
+
+/*.frame-text {*/
+/*    font-size: 1.5em;*/
+/*    text-align: center;*/
+/*    color: #fff;*/
+/*    margin-top: 20px;*/
+/*}*/
 /*---------------------------Story section ends here--------------------------------------------*/
 /* Main Title Section */
 .main-title h1 {
