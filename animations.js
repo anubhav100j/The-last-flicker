@@ -94,8 +94,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // Register ScrollTrigger plugin
     gsap.registerPlugin(ScrollTrigger);
 
-    // Animation for Frame 1
-    gsap.fromTo("#frame1",
+    // Create a timeline to chain animations together smoothly
+    const timeline = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#frame1",
+            start: "top 70%", // Start animating when the top of #frame1 is 70% from the top of the viewport
+            end: "top 5%", // End when the top of #frame1 reaches 5% from the top
+            scrub: true, // Smooth scrolling effect
+            markers: true, // For debugging, to visualize where the triggers start and end
+        }
+    });
+
+    // Fade-in animation for Frame 1
+    timeline.fromTo("#frame1",
         {
             opacity: 0,
             y: 50
@@ -103,16 +114,29 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             opacity: 1,
             y: 0,
+            duration: 1
+        }
+    );
+
+    // Pause when #frame1 reaches the center (top 50%)
+    timeline.to("#frame1 .frame-image",
+        {
+            x: "0%", // Remain centered
             duration: 1,
-            scrollTrigger: {
-                trigger: "#frame1",
-                start: "top 80%", // Trigger when top of the frame1 is 80% from the top of the viewport
-                end: "top 30%", // End when the top reaches 30% from the top
-                scrub: true, // Smooth scrolling effect
+            onComplete: () => {
+                console.log("Paused at center position");
             }
         }
     );
 
+    // Move to the right when screen reaches 10%
+    timeline.to("#frame1 .frame-image",
+        {
+            x: "100%", // Move off-screen to the right
+            duration: 1
+        },
+        "+=0.5" // Adding some delay for smoothness
+    );
     // Animation for Frame 2
     gsap.fromTo("#frame2",
         {
@@ -134,8 +158,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    const raindropCount = 150; // Number of raindrops
-    const raindropDuration = 3; // Duration for one raindrop to fall
+    const raindropCount = 350; // Number of raindrops
+    const raindropDuration = 2; // Duration for one raindrop to fall
 
     // Generate raindrops dynamically
     for (let i = 0; i < raindropCount; i++) {
@@ -161,3 +185,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+
+
