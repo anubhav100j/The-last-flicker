@@ -90,6 +90,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+document.addEventListener('scroll', function() {
+    const chapterNumber = document.querySelector('.chapter-number');
+    const scrollPosition = window.scrollY;
+    const triggerPoint = 100; // Adjust this value to set where the text appears
+
+    if (scrollPosition > triggerPoint) {
+        chapterNumber.classList.add('visible');
+    } else {
+        chapterNumber.classList.remove('visible');
+    }
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     // Register ScrollTrigger plugin
     gsap.registerPlugin(ScrollTrigger);
@@ -98,9 +110,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const timeline = gsap.timeline({
         scrollTrigger: {
             trigger: "#frame1",
-            start: "top 70%", // Start animating when the top of #frame1 is 70% from the top of the viewport
-            end: "top 5%", // End when the top of #frame1 reaches 5% from the top
-            scrub: true, // Smooth scrolling effect
+            start: "top 10%", // Start animating when the top of #frame1 is 70% from the top of the viewport
+            end: "top 0%", // End when the top of #frame1 reaches 5% from the top
+            scrub: 2, // Smooth scrolling effect with delay (in seconds)
             markers: true, // For debugging, to visualize where the triggers start and end
         }
     });
@@ -129,14 +141,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     );
 
-    // Move to the right when screen reaches 10%
+    // Shrink and move to the right when screen reaches 10%
     timeline.to("#frame1 .frame-image",
         {
             x: "100%", // Move off-screen to the right
+            scale: 0.5, // Shrink the image to half its original size
+            opacity: 0, // Fade out during the movement
             duration: 1
         },
         "+=0.5" // Adding some delay for smoothness
     );
+
     // Animation for Frame 2
     gsap.fromTo("#frame2",
         {
@@ -155,6 +170,26 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     );
+
+    // Animation for Frame 3
+    gsap.fromTo("#frame3",
+        {
+            opacity: 0,
+            y: 50
+        },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            scrollTrigger: {
+                trigger: "#frame3",
+                start: "top 80%", // Trigger when top of the frame2 is 80% from the top of the viewport
+                end: "top 30%", // End when the top reaches 30% from the top
+                scrub: true, // Smooth scrolling effect
+            }
+        }
+    );
+
 });
 
 document.addEventListener("DOMContentLoaded", () => {

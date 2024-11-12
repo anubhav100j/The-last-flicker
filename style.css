@@ -62,7 +62,7 @@ header {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: url('Church-back.jpg') no-repeat center center/cover;
+    background: black no-repeat center center/cover;
     animation: move-background 20s linear infinite;
     z-index: 0;
 }
@@ -125,6 +125,22 @@ header {
     50% { transform: translateY(-10px); }
 }
 
+.chapter-number{
+    margin-top: 30%;
+    font-size: large;
+    position: relative;
+    /*z-index: 5;*/
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Smooth transition when opacity changes */
+}
+
+.chapter-number.visible {
+    opacity: 1;
+}
+
 /*!* Make the frames-section tall enough to allow scrolling *!*/
 .frames-section {
     display: flex;
@@ -141,12 +157,46 @@ header {
     align-items: center;
     opacity: 0; /* Hidden initially */
     margin-bottom: 50px;
+    margin-left: 50%;
 }
-
+.frame-content{
+    position: relative; /* Create a positioning context for the dialogue */
+    display: inline-block; /* Shrink-wrap to the size of the image */
+}
 .frame-image {
     max-width: 50%;
     max-height: 30%;
     object-fit: cover;
+}
+.frame-dialogue {
+    position: absolute;
+    top: -41%;
+    left: 23%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    color: #333;
+    border-radius: 53%;
+    padding: -11px;
+    max-width: 20%;
+    margin: 20px;
+    font-size: 1rem;
+    line-height: 1.4;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+/* Specific styles for Frame 3 dialogue */
+.frame3-bubble {
+    top: -20%;
+    left: 55%; /* New top value specific to Frame 3 */
+}
+.frame-dialogue::after {
+    content: '';
+    position: absolute;
+    bottom: 0;            /* Position the tail below the bubble */
+    left: 30%;               /* Horizontal position of the tail */
+    border-width: 20px 10px 0;/* Size of the tail */
+    border-style: solid;
+    border-color: #ffffff transparent transparent transparent; /* Tail color */
 }
 /*.frames-section {*/
 /*    display: flex;*/
