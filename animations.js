@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
             y: 0,
             duration: 1,
             scrollTrigger: {
-                trigger: "#frame2",
+                trigger: "#frame4",
                 start: "top 80%", // Trigger when top of the frame2 is 80% from the top of the viewport
                 end: "top 30%", // End when the top reaches 30% from the top
                 scrub: true, // Smooth scrolling effect
@@ -189,6 +189,113 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     );
+    gsap.fromTo("#frame4",
+        {
+            opacity: 0,
+            y: 50
+        },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            scrollTrigger: {
+                trigger: "#frame4",
+                start: "top 80%", // Trigger when top of the frame2 is 80% from the top of the viewport
+                end: "top 30%", // End when the top reaches 30% from the top
+                scrub: true, // Smooth scrolling effect
+            }
+        }
+    );
+
+    gsap.fromTo("#frame5",
+        {
+            opacity: 0,
+            y: 50
+        },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            scrollTrigger: {
+                trigger: "#frame5",
+                start: "top 80%", // Trigger when top of the frame2 is 80% from the top of the viewport
+                end: "top 30%", // End when the top reaches 30% from the top
+                scrub: true, // Smooth scrolling effect
+            }
+        }
+    );
+
+    gsap.fromTo("#frame6",
+        {
+            opacity: 0,
+            y: 50
+        },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            scrollTrigger: {
+                trigger: "#frame6",
+                start: "top 80%", // Trigger when top of the frame2 is 80% from the top of the viewport
+                end: "top 30%", // End when the top reaches 30% from the top
+                scrub: true, // Smooth scrolling effect
+            }
+        }
+    );
+
+    gsap.fromTo("#frame7",
+        {
+            opacity: 0,
+            y: 50
+        },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            scrollTrigger: {
+                trigger: "#frame7",
+                start: "top 80%", // Trigger when top of the frame2 is 80% from the top of the viewport
+                end: "top 30%", // End when the top reaches 30% from the top
+                scrub: true, // Smooth scrolling effect
+            }
+        }
+    );
+
+    gsap.fromTo("#frame8",
+        {
+            opacity: 0,
+            y: 50
+        },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            scrollTrigger: {
+                trigger: "#frame8",
+                start: "top 80%", // Trigger when top of the frame2 is 80% from the top of the viewport
+                end: "top 30%", // End when the top reaches 30% from the top
+                scrub: true, // Smooth scrolling effect
+            }
+        }
+    );
+    gsap.fromTo("#frame9",
+        {
+            opacity: 0,
+            y: 50
+        },
+        {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            scrollTrigger: {
+                trigger: "#frame9",
+                start: "top 80%", // Trigger when top of the frame2 is 80% from the top of the viewport
+                end: "top 30%", // End when the top reaches 30% from the top
+                scrub: true, // Smooth scrolling effect
+            }
+        }
+    );
+
 
 });
 

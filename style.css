@@ -168,20 +168,15 @@ header {
     max-height: 30%;
     object-fit: cover;
 }
+
 .frame-dialogue {
     position: absolute;
     top: -41%;
     left: 23%;
-    transform: translateX(-50%);
-    background: #ffffff;
-    color: #333;
-    border-radius: 53%;
-    padding: -11px;
     max-width: 20%;
     margin: 20px;
     font-size: 1rem;
     line-height: 1.4;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 /* Specific styles for Frame 3 dialogue */
