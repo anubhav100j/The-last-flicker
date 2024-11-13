@@ -282,13 +282,63 @@ header {
     left: 12%;
     max-width: 25%;
 }
-
-
-/* Specific styles for Frame 3 dialogue */
-.frame3-bubble {
-    top: -20%;
-    left: 55%; /* New top value specific to Frame 3 */
+/* frame 8 styling */
+.frame-dialogue.d8 {
+    position: absolute;
+    top: -40%;
+    left: -10%;
+    max-width: 45%;
 }
+.blood-drip {
+    position: absolute;
+    top: 54%;
+    left: 21%;
+    max-width: 6%;
+    z-index: 2;
+}
+
+.frame-container#frame8 {
+    margin-bottom: 30rem;
+}
+.candles-group.f8 {
+    position: absolute;
+    top: 97%;
+    left: -1%;   
+}
+
+.frame-content p{
+    font-weight: bold;
+    color: white;
+    left: 70%;
+    margin-top: -4%;
+    font-size: 2rem;
+}
+/* frame 9 styling */
+
+
+/* frame 10 styling */
+.frame-dialogue.d10 {
+    top: 82%;
+    left: 25%;
+}
+
+/* frame 11 styling */
+.frame-dialogue.d11 {
+    top: 82%;
+    left: 2%;
+}
+/* frame 12 styling */
+.frame-dialogue.d12 {
+    top: -25%;
+    left: 31%;
+}
+
+/* frame 13 styling */
+.frame-dialogue.d13 {
+    top: -23%;
+    left: 16%;
+}
+
 .frame-dialogue::after {
     content: '';
     position: absolute;
@@ -298,6 +348,20 @@ header {
     border-style: solid;
     border-color: #ffffff transparent transparent transparent; /* Tail color */
 }
+
+.background-text {
+    position: absolute;
+    font-size: 193px;
+    font-weight: bold;
+    color: white;
+    top: 18%;
+    left: 23%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    white-space: nowrap;
+    /* margin-top: 11rem; */
+}
+
 /*.frames-section {*/
 /*    display: flex;*/
 /*    flex-direction: column;*/
