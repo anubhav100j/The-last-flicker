@@ -142,6 +142,25 @@ header {
 }
 
 /*!* Make the frames-section tall enough to allow scrolling *!*/
+.church-door {
+    position: absolute; /* Set background image in place */
+    top: -117px;
+    left: 0;
+    width: 50%; /* Full width of the container */
+    height: 100%; /* Full height of the container */
+    object-fit: cover; /* Make the background image fit nicely */
+    z-index: 0; /* Place the background behind other content */
+}
+.window-bg {
+    position: absolute;
+    top: -142px;
+    right: 35em;
+    width: 70%;
+    height: 100%;
+    /* object-fit: cover; */
+    z-index: -1;
+}
+
 .frames-section {
     display: flex;
     flex-direction: column;
@@ -167,6 +186,7 @@ header {
     max-width: 50%;
     max-height: 30%;
     object-fit: cover;
+    z-index: 2;
 }
 
 .frame-dialogue {
@@ -178,6 +198,7 @@ header {
     font-size: 1rem;
     line-height: 1.4;
     text-align: center;
+    z-index: 2;
 }
 /* Specific styles for Frame 3 dialogue */
 .frame3-bubble {
